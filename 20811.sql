@@ -81,3 +81,13 @@ SELECT
 p.CodigoPedido, p.DataPedido, c.NomeCliente 
 FROM clientes  c inner join Pedidos p on p.IDCliente = c.IDCliente;
 
+SELECT
+ip.CodigoPedido, p.NomeProduto, p.PrecoUnitario , ip.QtdeVendida,
+ip.QtdeVendida * p.PrecoUnitario AS Subtotal
+FROM ItensPedidos  ip inner join Produtos p on p.IDProduto = ip.IDProduto;
+
+CREATE TEMPORARY TABLE tmp_nota(
+CodigoPedido INT NOT NULL PRIMARY KEY,
+DataPedido DATE NOT NULL,
+NomeCliente VARCHAR(100) NOT NULL
+);
